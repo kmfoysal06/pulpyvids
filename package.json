@@ -1,0 +1,28 @@
+{
+  "name": "pulpyvids",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "GPL-2.0-or-later",
+  "keywords": [],
+  "homepage": "",
+  "repository": "",
+  "bugs": [],
+  "type": "commonjs",
+  "main": "block.js",
+  "devDependencies": {
+    "@wordpress/scripts": "^32.5.0"
+  },
+  "scripts": {
+    "dev": "wp-scripts start",
+    "build": "wp-scripts build",
+    "cheng": "wp-scripts check-engines",
+    "chelic": "wp-scripts check-licenses --prod --gpl2 --ignore-abab",
+    "lint:js": "wp-scripts lint-js src/index.js",
+    "lint:css": "wp-scripts lint-style **/*.css",
+    "lint:pkg-json": "wp-scripts lint-pkg-json .",
+    "lint:pkg-json:fix": "wp-scripts lint-pkg-json . --fix" ,
+    "lint:css-fix": "wp-scripts lint-style **/*.css --fix",
+    "lint:js:fix": "wp-scripts lint-js src/index.js  --fix"
+  }
+}
