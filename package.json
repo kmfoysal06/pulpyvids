@@ -21,8 +21,11 @@
     "lint:js": "wp-scripts lint-js src/index.js",
     "lint:css": "wp-scripts lint-style **/*.css",
     "lint:pkg-json": "wp-scripts lint-pkg-json .",
-    "lint:pkg-json:fix": "wp-scripts lint-pkg-json . --fix" ,
+    "lint:pkg-json:fix": "wp-scripts lint-pkg-json . --fix",
     "lint:css-fix": "wp-scripts lint-style **/*.css --fix",
     "lint:js:fix": "wp-scripts lint-js src/index.js  --fix"
+  },
+  "dependencies": {
+    "@videojs/react": "^10.0.0-beta.24"
   }
 }
