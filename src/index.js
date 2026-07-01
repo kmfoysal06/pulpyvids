@@ -1,11 +1,11 @@
-const { registerBlockType } = wp.blocks;
-const { MediaPlaceholder, useBlockProps } = wp.blockEditor;
-const { Button } = wp.components;
-const {__} = wp.i18n;
-//import ccreate player from react/videojs
-const {createPlayer, videoFeatures} = require('@videojs/react');
-const { VideoSkin, Video, videFeatures } = require('@videojs/react/video');
-//require('@videojs/react/video/skin.css');
+const { registerBlockType } = require("@wordpress/blocks")
+const { MediaPlaceholder } = require("@wordpress/editor")
+const {useBlockProps} = require("@wordpress/block-editor")
+const { Button } = require('@wordpress/components');
+require("@videojs/react/video/minimal-skin.css")
+const {__} = require( '@wordpress/i18n');
+const {createPlayer} = require('@videojs/react')
+const { MinimalVideoSkin, Video, videoFeatures } = require('@videojs/react/video');
 
 const Player = createPlayer({features: videoFeatures});
 
@@ -44,7 +44,11 @@ registerBlockType( 'pulpyvids/test-block', {
                     </>
                 ) : (
                     <>
-                        <Player.Provider> <Video src={videoUrl} playsInline /> </Player.Provider>
+                        <Player.Provider> 
+                            <MinimalVideoSkin>
+                                <Video src={videoUrl} playsInline />
+                            </MinimalVideoSkin>
+                        </Player.Provider>
                         <Button isSecondary onClick={() => setAttributes({videoUrl: ''})}>Remove Video</Button>
                     </>
                 )

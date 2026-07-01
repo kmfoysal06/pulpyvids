@@ -6,18 +6,21 @@
  */
 
 add_action("init", function() {
+    $deps_file = include plugin_dir_path(__FILE__) . 'build/index.asset.php';
+    $dependencies = is_array($deps_file) && isset($deps_file['dependencies']) ? $deps_file['dependencies'] : ["wp-blocks", "wp-element", "wp-editor"];
+
     wp_register_script(
         "pulpyvids_gutenberg-block",
         plugins_url("build/index.js", __FILE__),
-        ["wp-blocks", "wp-element", "wp-editor"],
+        $dependencies,
         filemtime(plugin_dir_path(__FILE__) . "build/index.js")
     );
 
     wp_register_style(
         "pulpyvids_gutenberg-block-editor",
-        plugins_url("editor.css", __FILE__),
+        plugins_url("build/index.css", __FILE__),
         ["wp-edit-blocks"],
-        filemtime(plugin_dir_path(__FILE__) . "editor.css")
+        filemtime(plugin_dir_path(__FILE__) . "build/index.css")
     );
     wp_register_style(
         "pulpyvids_gutenberg-block-fe",

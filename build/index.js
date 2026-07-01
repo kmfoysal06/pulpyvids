@@ -1,6 +1,19 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/@videojs/react/dist/default/presets/video/minimal-skin.css"
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@videojs/react/dist/default/presets/video/minimal-skin.css ***!
+  \*********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
 /***/ "react"
 /*!************************!*\
   !*** external "React" ***!
@@ -31,6 +44,61 @@ module.exports = window["ReactDOM"];
 
 "use strict";
 module.exports = window["ReactJSXRuntime"];
+
+/***/ },
+
+/***/ "@wordpress/block-editor"
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+(module) {
+
+"use strict";
+module.exports = window["wp"]["blockEditor"];
+
+/***/ },
+
+/***/ "@wordpress/blocks"
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+(module) {
+
+"use strict";
+module.exports = window["wp"]["blocks"];
+
+/***/ },
+
+/***/ "@wordpress/components"
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+(module) {
+
+"use strict";
+module.exports = window["wp"]["components"];
+
+/***/ },
+
+/***/ "@wordpress/editor"
+/*!********************************!*\
+  !*** external ["wp","editor"] ***!
+  \********************************/
+(module) {
+
+"use strict";
+module.exports = window["wp"]["editor"];
+
+/***/ },
+
+/***/ "@wordpress/i18n"
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+(module) {
+
+"use strict";
+module.exports = window["wp"]["i18n"];
 
 /***/ },
 
@@ -22126,22 +22194,23 @@ let __webpack_exports__ = {};
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-var registerBlockType = wp.blocks.registerBlockType;
-var _wp$blockEditor = wp.blockEditor,
-  MediaPlaceholder = _wp$blockEditor.MediaPlaceholder,
-  useBlockProps = _wp$blockEditor.useBlockProps;
-var Button = wp.components.Button;
-var __ = wp.i18n.__;
-//import ccreate player from react/videojs
-var _require = __webpack_require__(/*! @videojs/react */ "./node_modules/@videojs/react/dist/dev/index.js"),
-  createPlayer = _require.createPlayer,
-  videoFeatures = _require.videoFeatures;
-var _require2 = __webpack_require__(/*! @videojs/react/video */ "./node_modules/@videojs/react/dist/dev/presets/video/index.js"),
-  VideoSkin = _require2.VideoSkin,
-  Video = _require2.Video,
-  videFeatures = _require2.videFeatures;
-//require('@videojs/react/video/skin.css');
-
+var _require = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks"),
+  registerBlockType = _require.registerBlockType;
+var _require2 = __webpack_require__(/*! @wordpress/editor */ "@wordpress/editor"),
+  MediaPlaceholder = _require2.MediaPlaceholder;
+var _require3 = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor"),
+  useBlockProps = _require3.useBlockProps;
+var _require4 = __webpack_require__(/*! @wordpress/components */ "@wordpress/components"),
+  Button = _require4.Button;
+__webpack_require__(/*! @videojs/react/video/minimal-skin.css */ "./node_modules/@videojs/react/dist/default/presets/video/minimal-skin.css");
+var _require5 = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n"),
+  __ = _require5.__;
+var _require6 = __webpack_require__(/*! @videojs/react */ "./node_modules/@videojs/react/dist/dev/index.js"),
+  createPlayer = _require6.createPlayer;
+var _require7 = __webpack_require__(/*! @videojs/react/video */ "./node_modules/@videojs/react/dist/dev/presets/video/index.js"),
+  MinimalVideoSkin = _require7.MinimalVideoSkin,
+  Video = _require7.Video,
+  videoFeatures = _require7.videoFeatures;
 var Player = createPlayer({
   features: videoFeatures
 });
@@ -22178,10 +22247,10 @@ registerBlockType('pulpyvids/test-block', {
       labels: {
         title: "The Video"
       }
-    })) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Player.Provider, null, " ", /*#__PURE__*/React.createElement(Video, {
+    })) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Player.Provider, null, /*#__PURE__*/React.createElement(MinimalVideoSkin, null, /*#__PURE__*/React.createElement(Video, {
       src: videoUrl,
       playsInline: true
-    }), " "), /*#__PURE__*/React.createElement(Button, {
+    }))), /*#__PURE__*/React.createElement(Button, {
       isSecondary: true,
       onClick: function onClick() {
         return setAttributes({
