@@ -1,0 +1,11 @@
+{
+  "apiVersion": 5,
+  "name": "pulpyvids/video",
+  "title": "PulpyVids",
+  "category": "media",
+
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/index.css",
+  "viewScript": "file:./build/view.js",
+  "style": "file:./build/index.css"
+}
