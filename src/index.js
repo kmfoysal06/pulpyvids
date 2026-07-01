@@ -11,7 +11,7 @@ const Player = createPlayer({features: videoFeatures});
 registerBlockType( 'pulpyvids/video', {
 	title: __( 'PulpyVids', 'pulpyvids' ),
 	description: __(
-		'Different Varient of Video Players in Gutenberg',
+		'Show Better Video Player UI',
 		'pulpyvids'
 	),
     attributes: {
