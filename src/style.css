@@ -130,6 +130,35 @@
   backdrop-filter: var(--media-controls-backdrop-filter);
 }
 
+.pulpyvids-player-wrapper.pulpyvids-pristine .media-controls {
+  position: absolute;
+  inset: 0;
+  justify-content: center;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.pulpyvids-player-wrapper.pulpyvids-pristine .media-controls * {
+  visibility: hidden;
+}
+
+.pulpyvids-player-wrapper.pulpyvids-pristine .media-controls .media-button--play,
+.pulpyvids-player-wrapper.pulpyvids-pristine .media-controls .media-button--play * {
+  visibility: visible;
+}
+
+.pulpyvids-player-wrapper.pulpyvids-pristine .media-controls .media-button--play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3.25rem;
+  height: 3.25rem;
+  color: oklch(1 0 0);
+  background: oklch(0 0 0 / 0.45);
+  border-radius: calc(infinity * 1px);
+  transform: translate(-50%, -50%);
+}
+
 /* ==========================================================================
    Time Controls & Display
    ========================================================================== */
@@ -843,4 +872,3 @@
   padding: 0 0 0 4rem;
   background: linear-gradient(to left, var(--media-controls-background-color) 80%, transparent 100%);
 }
-

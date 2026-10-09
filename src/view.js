@@ -12,6 +12,29 @@ document.addEventListener('DOMContentLoaded', function() {
         const videoUrl = container.getAttribute('data-video-url');
         const posterUrl = container.getAttribute('data-poster-url');
         const toBoolean = (value) => value === 'true';
+        const controls = toBoolean(container.getAttribute('data-controls'));
+
+        const setupInitialPlayState = () => {
+            container.classList.add('pulpyvids-pristine');
+
+            requestAnimationFrame(() => {
+                const videoElement = container.querySelector('video');
+
+                if (!videoElement) {
+                    return;
+                }
+
+                const markAsStarted = () => {
+                    container.classList.remove('pulpyvids-pristine');
+                };
+
+                videoElement.addEventListener('play', markAsStarted, { once: true });
+
+                if (!videoElement.paused || videoElement.currentTime > 0) {
+                    markAsStarted();
+                }
+            });
+        };
     
         if (videoUrl) {
             const root = createRoot(container);
@@ -21,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <Video
                             src={videoUrl}
                             poster={posterUrl || undefined}
-                            controls={toBoolean(container.getAttribute('data-controls'))}
+                            controls={controls}
                             autoPlay={toBoolean(container.getAttribute('data-autoplay'))}
                             loop={toBoolean(container.getAttribute('data-loop'))}
                             muted={toBoolean(container.getAttribute('data-muted'))}
@@ -31,6 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     </MinimalVideoSkin>
                 </Player.Provider>
             );
+
+            if (controls) {
+                setupInitialPlayState();
+            }
         }
     });
 });
