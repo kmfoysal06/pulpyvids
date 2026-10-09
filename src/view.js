@@ -10,13 +10,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     playerContainers.forEach((container) => {
         const videoUrl = container.getAttribute('data-video-url');
+        const posterUrl = container.getAttribute('data-poster-url');
+        const toBoolean = (value) => value === 'true';
     
         if (videoUrl) {
             const root = createRoot(container);
             root.render(
                 <Player.Provider>
                     <MinimalVideoSkin>
-                        <Video src={videoUrl} playsInline />
+                        <Video
+                            src={videoUrl}
+                            poster={posterUrl || undefined}
+                            controls={toBoolean(container.getAttribute('data-controls'))}
+                            autoPlay={toBoolean(container.getAttribute('data-autoplay'))}
+                            loop={toBoolean(container.getAttribute('data-loop'))}
+                            muted={toBoolean(container.getAttribute('data-muted'))}
+                            playsInline={toBoolean(container.getAttribute('data-plays-inline'))}
+                            preload={container.getAttribute('data-preload') || 'metadata'}
+                        />
                     </MinimalVideoSkin>
                 </Player.Provider>
             );
